@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: "https://argoproj.github.io/argo-helm"
     targetRevision: 7.6.12
-    chart: argo/argo-cd
+    chart: argo-cd
   project: default
   syncPolicy:
     automated:
