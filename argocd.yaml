@@ -22,7 +22,7 @@ spec:
               server.insecure: true
         valueFiles:
           - $styling/styles.yaml
-    - repoURL:
+    - repoURL: https://github.com/jonasoo98/self-managed-argo
       targetRevision: HEAD
       ref: styling
   project: default
