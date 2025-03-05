@@ -14,6 +14,8 @@ spec:
       chart: argo-cd
       helm:
         valuesObject:
+          dex:
+            enabled: false
           fullnameOverride: "argocd"
           createClusterRoles: false
           configs:
