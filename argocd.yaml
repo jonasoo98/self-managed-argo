@@ -6,26 +6,22 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: argocd
+    namespace: argocd-tip
     server: "https://kubernetes.default.svc"
   sources:
     - repoURL: "https://argoproj.github.io/argo-helm"
-      targetRevision: 7.7.0
+      targetRevision: 7.6.12
       chart: argo-cd
       helm:
         valuesObject:
-          fullnameOverride: "foo"
+          fullnameOverride: ""
+          createClusterRoles: false
           configs:
             cm:
               ui.bannercontent: "Argo CD - QA user interface"
               ui.bannerpermanent: true
             params:
               server.insecure: true
-        valueFiles:
-          - $styling/styles.yaml
-    - repoURL: https://github.com/jonasoo98/self-managed-argo
-      targetRevision: HEAD
-      ref: styling
   project: default
   syncPolicy:
     automated:
