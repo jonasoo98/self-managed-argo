@@ -5,7 +5,7 @@ configs:
       background: #AA3331;
     }
     .ui-banner {
-      background: #319331;
+      background: #FF0000;
     }
     .theme-light .top-bar {
       background: #31933180;
