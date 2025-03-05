@@ -8,57 +8,23 @@ spec:
   destination:
     namespace: argocd
     server: "https://kubernetes.default.svc"
-  source:
-    repoURL: "https://argoproj.github.io/argo-helm"
-    targetRevision: 7.6.12
-    chart: argo-cd
-    helm:
-      valuesObject:
-        configs:
-          cm:
-            ui.bannercontent: "Argo CD - QA user interface"
-            ui.bannerpermanent: true
-          params:
-            server.insecure: true
-          styles: |
-            body{
-              background: #319331;
-            }
-            .ui-banner {
-              background: #319331;
-            }
-            .theme-light .top-bar {
-              background: #31933180;
-            }
-            .theme-light .cd-layout {
-              background-color: #cccccc;
-            }
-            .sidebar {
-              background: #005500;
-            }
-            .top-bar {
-              background: #319331;
-            }
-            .nav-bar {
-              background: #319331;
-            }
-            .filters-group__panel {
-              background-color: #319331;
-              color: #319331;
-            }
-            .filter {
-              background-color: #373737;
-            }
-            .filter__header {
-              color: #ffffff;
-            }
-            .filter__item {
-              background-color: #373737;
-              color: #ffffff;
-            }
-            .filter__collapse {
-              color: #ffffff;
-            }
+  sources:
+    - repoURL: "https://argoproj.github.io/argo-helm"
+      targetRevision: 7.6.12
+      chart: argo-cd
+      helm:
+        valuesObject:
+          configs:
+            cm:
+              ui.bannercontent: "Argo CD - QA user interface"
+              ui.bannerpermanent: true
+            params:
+              server.insecure: true
+        valueFiles:
+          - $styling/styles.yaml
+    - repoURL:
+      targetRevision: HEAD
+      ref: styling
   project: default
   syncPolicy:
     automated:
