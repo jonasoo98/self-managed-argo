@@ -25,5 +25,3 @@ spec:
             params:
               server.insecure: true
   project: default
-  syncPolicy:
-    automated:
